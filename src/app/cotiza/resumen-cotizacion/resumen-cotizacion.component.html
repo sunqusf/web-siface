@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-12">
+    <a routerLink="../search" class="btn btn-sm btn-outline-primary float-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <h5 class="float-left" style="margin-left: 20px; padding-top: 3px;"><i class="fa fa-dollar" aria-hidden="true"></i> Cotizaciones <small>Nueva cotización</small></h5>
+  </div>
+</div>
+<div class="row text-muted" style="font-size: 13px; margin-top: 20px; padding: 15px 0px;">
+  <div class="col-sm-8">
+    Item
+  </div>
+  <div class="col-sm-2">
+    Precio
+  </div>
+  <div class="col-sm-2">
+    Cantidad
+  </div>
+</div>
+<div class="row" style="border-top: solid 1px; border-color: #636c72; padding: 15px 0px;" *ngFor="let cartItem of cart">
+  <div class="col-sm-2">
+    <img class="img-thumbnail" [attr.src]="cartItem.producto.imagen">
+  </div>
+  <div class="col-sm-6">
+    {{cartItem.producto.nombre}}
+  </div>
+  <div class="col-sm-2">
+    {{cartItem.producto.precio}}
+  </div>
+  <div class="col-sm-2">
+    {{cartItem.cantidad}}
+  </div>
+</div>
+<div class="row" style="border-top: solid 1px; border-color: #636c72; padding: 15px 0px;">
+  <div class="col-sm-10 text-right text-muted" style="font-size: 13px;">
+    Subtotal
+  </div>
+  <div class="col-sm-2">
+    1000
+  </div>
+</div>

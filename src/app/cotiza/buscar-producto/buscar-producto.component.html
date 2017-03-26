@@ -1,30 +1,120 @@
-<h5><i class="fa fa-file" aria-hidden="true"></i> Cotizaciones</h5>
 <div class="row">
   <div class="col-sm-12">
-    <a routerLink="../../search" class="btn btn-sm btn-outline-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</a>
+    <a routerLink="../../search" class="btn btn-sm btn-outline-primary float-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <h5 class="float-left" style="margin-left: 20px; padding-top: 3px;"><i class="fa fa-dollar" aria-hidden="true"></i> Cotizaciones <small>Nueva cotización</small></h5>
   </div>
 </div>
 
 <div class="row" style="padding-top: 20px;">
   <div class="col-sm-8">
-    <table class="table table-hover table-sm">
-      <thead>
-        <tr>
-          <th>Cliente</th>
-          <th>Fecha</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>LUCAS RESOURCES S.A.C.</td>
-          <td>11/03/2017</td>
-          <td><a routerLink="new/search" class="btn btn-link btn-sm btn-outline-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: 20px;">
+        <form (ngSubmit)="onBuscar()" #searchForm="ngForm">
+          <div class="input-group">
+            <label class="sr-only" for="query">Name</label>
+            <input type="text" class="form-control" id="query" placeholder="Ej. Casco 4 puntas">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hiden="true"></i> Buscar</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: 20px;">
+        <div *ngIf="!productoActual">
+          <p class="text-center text-muted font-italic" *ngIf="productos.length == 0">
+            No encontramos resultados... Vuelve a intentar.
+          </p>
+          <table class="table" *ngIf="productos.length != 0">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th style="width: 70px;"></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producto of productos">
+                <td>{{producto.codigo}}</td>
+                <td>{{producto.nombre}}<br /><span class="badge" [ngClass]="{'badge-success': producto.stock > 30, 'badge-warning': producto.stock > 0 && producto.stock < 31, 'badge-danger': producto.stock == 0}">Stock: {{producto.stock}}</span></td>
+                <td>{{producto.precio}}</td>
+                <td><img class="img-thumbnail" [attr.src]="producto.imagen"></td>
+                <td>
+                  <button (click)="onAgregar(producto)" class="btn btn-link"><i class="fa fa-cart-plus"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div *ngIf="productoActual">
+          <form (ngSubmit)="onAgregarCarrito()" #agregarCarritoForm="ngForm">
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <img class="img-thumbnail" [attr.src]="productoActual.imagen">
+              </div>
+              <div class="col-sm-10">
+                <p class="form-control-static">{{productoActual.codigo}} - {{productoActual.nombre}}
+                  <br />
+                  <span class="badge" [ngClass]="{'badge-success': productoActual.stock > 30, 'badge-warning': productoActual.stock > 0 && productoActual.stock < 31, 'badge-danger': productoActual.stock == 0}">Stock: {{productoActual.stock}}</span>
+                </p>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Precio</label>
+                  <div class="col-sm-10">
+                    <p class="form-control-static">{{productoActual.precio}}</p>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="cantidad" class="col-sm-2 col-form-label">Cantidad</label>
+                  <div class="col-sm-4 input-group">
+                    <input name="cantidad" type="text" class="form-control" id="cantidad" placeholder="Ej. 2" [(ngModel)]="cantidadSolicitada" />
+                    <div class="input-group-addon">{{productoActual.unidad}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"></label>
+              <div class="col-sm-10 text-right">
+                <button class="btn btn-success" type="submit"><i class="fa fa-cart-plus"></i> Agregar al carrito</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="col-sm-4">
-    asdf
+    <div class="card">
+      <p class="text-center text-muted font-italic" *ngIf="cart.length == 0" style="margin: 70px 0px">
+        <i class="fa fa-shopping-cart" style="font-size: 98px;" aria-hidden="true"></i><br />
+        Seleccione productos para la cotización.
+      </p>
+      <div class="card-header" *ngIf="cart.length != 0">
+        Productos seleccionados
+      </div>
+      <ul class="list-group list-group-flush" *ngIf="cart.length != 0">
+        <li class="list-group-item" *ngFor="let cartItem of cart">
+          <div class="row" style="font-size: 13px">
+            <div class="col-sm-2 text-right">{{cartItem.cantidad}}</div>
+            <div class="col-sm-8">{{cartItem.producto.nombre}}</div>
+            <div class="col-sm-2 text-right">{{cartItem.producto.precio}}</div>
+          </div>
+        </li>
+      </ul>
+      <div class="card-footer text-muted" *ngIf="cart.length != 0">
+        <div class="row" style="font-size: 13px">
+          <div class="col-sm-10 text-right">Subtotal</div>
+          <div class="col-sm-2 text-right"><strong>20.00</strong></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" style="padding-top: 20px"><button class="btn btn-success btn-block" type="button" (click)="gotoSummary()">Generar cotización</button></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
