@@ -6,6 +6,9 @@ import { BuscarProductoComponent } from './buscar-producto/buscar-producto.compo
 import { CotizaRoutingModule } from './cotiza-routing.module';
 import { BuscarCotizacionComponent } from './buscar-cotizacion/buscar-cotizacion.component';
 import { ResumenCotizacionComponent } from './resumen-cotizacion/resumen-cotizacion.component';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { CotizaSuccessComponent } from './cotiza-success/cotiza-success.component';
+import { DetalleCotizacionComponent } from './detalle-cotizacion/detalle-cotizacion.component';
 
 @NgModule({
   imports: [
@@ -13,6 +16,6 @@ import { ResumenCotizacionComponent } from './resumen-cotizacion/resumen-cotizac
     FormsModule,
     CotizaRoutingModule
   ],
-  declarations: [BuscarProductoComponent, BuscarCotizacionComponent, ResumenCotizacionComponent]
+  declarations: [BuscarProductoComponent, BuscarCotizacionComponent, ResumenCotizacionComponent, RegistroClienteComponent, CotizaSuccessComponent, DetalleCotizacionComponent]
 })
 export class CotizaModule { }

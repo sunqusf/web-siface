@@ -1,0 +1,71 @@
+<div class="row" style="padding-top: 20px;">
+  <div class="col-sm-12 text-center">
+    <a routerLink="/cotiza/search" class="btn btn-sm btn-outline-primary float-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <h4>Cotizacion N° {{cotizacion.codigo}}</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <h6>Datos del cliente</h6>
+    <form (ngSubmit)="onRegistrar()" #clientForm="ngForm">
+      <div class="row">
+        <label for="ruc" class="col-sm-2 col-form-label col-form-label-sm">RUC</label>
+        <div class="col-sm-3">
+          <p class="form-control-static">{{cotizacion.cliente.ruc}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="razonsocial" class="col-sm-2 col-form-label col-form-label-sm">Razón social</label>
+        <div class="col-sm-6">
+          <p class="form-control-static">{{cotizacion.cliente.razonsocial}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="direccion" class="col-sm-2 col-form-label col-form-label-sm">Dirección</label>
+        <div class="col-sm-6">
+          <p class="form-control-static">{{cotizacion.cliente.direccion}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="vendedor" class="col-sm-2 col-form-label col-form-label-sm">Vendedor</label>
+        <div class="col-sm-6">
+          <p class="form-control-static">{{cotizacion.vendedor}}</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row text-muted" style="font-size: 13px; padding: 15px 0px;">
+  <div class="col-sm-8">
+    Item
+  </div>
+  <div class="col-sm-2">
+    Precio
+  </div>
+  <div class="col-sm-2">
+    Cantidad
+  </div>
+</div>
+<div class="row" style="border-top: solid 1px; border-color: #636c72; padding: 15px 0px;" *ngFor="let cartItem of cotizacion.cart">
+  <div class="col-sm-2">
+    <img class="img-thumbnail" [attr.src]="cartItem.producto.imagen">
+  </div>
+  <div class="col-sm-6">
+    {{cartItem.producto.nombre}}
+  </div>
+  <div class="col-sm-2">
+    {{cartItem.producto.precio}}
+  </div>
+  <div class="col-sm-2">
+    {{cartItem.cantidad}}
+  </div>
+</div>
+<div class="row" style="border-top: solid 1px; border-color: #636c72; padding: 15px 0px;">
+  <div class="col-sm-10 text-right text-muted" style="font-size: 13px;">
+    Subtotal
+  </div>
+  <div class="col-sm-2">
+    1000
+  </div>
+</div>
