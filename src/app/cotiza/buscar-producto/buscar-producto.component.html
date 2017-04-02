@@ -9,12 +9,12 @@
   <div class="col-sm-8">
     <div class="row">
       <div class="col-sm-12" style="margin-top: 20px;">
-        <form (ngSubmit)="onBuscar()" #searchForm="ngForm">
+        <form (ngSubmit)="onBuscar();" #searchForm="ngForm">
           <div class="input-group">
             <label class="sr-only" for="query">Name</label>
-            <input type="text" class="form-control" id="query" placeholder="Ej. Casco 4 puntas">
+            <input type="text" class="form-control" id="query" [(ngModel)]="query" name="query" placeholder="Ej. Casco 4 puntas">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hiden="true"></i> Buscar</button>
+              <button type="button" (click)="onBuscar();" class="btn btn-primary"><i class="fa fa-search" aria-hiden="true"></i> Buscar</button>
             </span>
           </div>
         </form>
@@ -32,6 +32,7 @@
               <tr>
                 <th>Código</th>
                 <th>Descripción</th>
+                <th>Costo</th>
                 <th>Precio</th>
                 <th style="width: 70px;"></th>
                 <th></th>
@@ -39,40 +40,52 @@
             </thead>
             <tbody>
               <tr *ngFor="let producto of productos">
-                <td>{{producto.codigo}}</td>
-                <td>{{producto.nombre}}<br /><span class="badge" [ngClass]="{'badge-success': producto.stock > 30, 'badge-warning': producto.stock > 0 && producto.stock < 31, 'badge-danger': producto.stock == 0}">Stock: {{producto.stock}}</span></td>
-                <td>{{producto.precio}}</td>
-                <td><img class="img-thumbnail" [attr.src]="producto.imagen"></td>
+                <td>{{producto.code}}</td>
+                <td>{{producto.description}}<br /><span class="badge" [ngClass]="{'badge-success': producto.stock > 30, 'badge-warning': producto.stock > 0 && producto.stock < 31, 'badge-danger': producto.stock == 0}">Stock: {{producto.stock}}</span></td>
+                <td>S/. {{producto.unitCost | number:'1.2-2' }}</td>
+                <td>S/. {{producto.unitPrice | number:'1.2-2' }}</td>
+                <td><img class="img-thumbnail" [attr.src]="producto.image"></td>
                 <td>
                   <button (click)="onAgregar(producto)" class="btn btn-link"><i class="fa fa-cart-plus"></i></button>
                 </td>
               </tr>
             </tbody>
           </table>
+
+          <paging currentPage="{{response.page}}" pageSize="{{response.size}}" totalPages="{{response.totalPages}}" (goto)="onGotoPage($event)" *ngIf="productos.length != 0"></paging>
         </div>
 
         <div *ngIf="productoActual">
+          <div *ngIf="cantidadSolicitadaErrorMessage" class="alert alert-info" role="alert">
+            <strong>Información!</strong> {{cantidadSolicitadaErrorMessage}}
+          </div>
           <form (ngSubmit)="onAgregarCarrito()" #agregarCarritoForm="ngForm">
             <div class="form-group row">
               <div class="col-sm-2">
-                <img class="img-thumbnail" [attr.src]="productoActual.imagen">
+                <img class="img-thumbnail" [attr.src]="productoActual.image">
               </div>
               <div class="col-sm-10">
-                <p class="form-control-static">{{productoActual.codigo}} - {{productoActual.nombre}}
+                <p class="form-control-static">{{productoActual.code}} - {{productoActual.description}}
                   <br />
                   <span class="badge" [ngClass]="{'badge-success': productoActual.stock > 30, 'badge-warning': productoActual.stock > 0 && productoActual.stock < 31, 'badge-danger': productoActual.stock == 0}">Stock: {{productoActual.stock}}</span>
                 </p>
                 <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Costo</label>
+                  <div class="col-sm-10">
+                    <p class="form-control-static">S/. {{productoActual.unitCost | number:'1.2-2' }}</p>
+                  </div>
+                </div>
+                <div class="form-group row">
                   <label class="col-sm-2 col-form-label">Precio</label>
                   <div class="col-sm-10">
-                    <p class="form-control-static">{{productoActual.precio}}</p>
+                    <p class="form-control-static">S/. {{productoActual.unitPrice | number:'1.2-2' }}</p>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="cantidad" class="col-sm-2 col-form-label">Cantidad</label>
                   <div class="col-sm-4 input-group">
-                    <input name="cantidad" type="text" class="form-control" id="cantidad" placeholder="Ej. 2" [(ngModel)]="cantidadSolicitada" />
-                    <div class="input-group-addon">{{productoActual.unidad}}</div>
+                    <input name="cantidad" type="text" class="form-control" id="cantidad" placeholder="Ej. 2" [(ngModel)]="cantidadSolicitada" [textMask]="{mask: numberMask}" />
+                    <div class="input-group-addon">{{productoActual.measure}}</div>
                   </div>
                 </div>
               </div>
@@ -97,19 +110,20 @@
       <div class="card-header" *ngIf="cart.length != 0">
         Productos seleccionados
       </div>
-      <ul class="list-group list-group-flush" *ngIf="cart.length != 0">
-        <li class="list-group-item" *ngFor="let cartItem of cart">
-          <div class="row" style="font-size: 13px">
-            <div class="col-sm-2 text-right">{{cartItem.cantidad}}</div>
-            <div class="col-sm-8">{{cartItem.producto.nombre}}</div>
-            <div class="col-sm-2 text-right">{{cartItem.producto.precio}}</div>
+      <!-- <ul class="list-group list-group-flush" *ngIf="cart.length != 0"> -->
+        <!-- <li class="list-group-item" *ngFor="let cartItem of cart"> -->
+          <div class="row" style="position: relative; font-size: 12px; padding: 14px 15px; border-top: 1px solid rgba(0, 0, 0, 0.125); margin-right: 0px; margin-left: 0px;" *ngFor="let cartItem of cart">
+            <button (click)="onQuitarCarrito(cartItem.producto.id)" style="position: absolute; padding: 3px; margin-top: -4px; z-index: 100;" class="btn btn-link"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <div class="col-2 text-right">{{cartItem.cantidad}}</div>
+            <div class="col-7">{{cartItem.producto.description}}</div>
+            <div class="col-3 text-right">S/. {{cartItem.producto.unitPrice | number:'1.2-2' }}</div>
           </div>
-        </li>
-      </ul>
+        <!-- </li> -->
+      <!-- </ul> -->
       <div class="card-footer text-muted" *ngIf="cart.length != 0">
         <div class="row" style="font-size: 13px">
-          <div class="col-sm-10 text-right">Subtotal</div>
-          <div class="col-sm-2 text-right"><strong>20.00</strong></div>
+          <div class="col-sm-8 text-right">Subtotal</div>
+          <div class="col-sm-4 text-right"><strong>S/. {{subtotal | number:'1.2-2' }}</strong></div>
         </div>
         <div class="row">
           <div class="col-sm-12" style="padding-top: 20px"><button class="btn btn-success btn-block" type="button" (click)="gotoSummary()">Generar cotización</button></div>

@@ -9,26 +9,60 @@
     <div class="alert alert-info" role="alert">
       Cotizando <strong>{{cart.length}} item(s)</strong>
     </div>
-    <h6>Datos del cliente</h6>
+    <h4>Datos del Cliente</h4>
     <form (ngSubmit)="onRegistrar()" #clientForm="ngForm">
       <div class="form-group row">
         <label for="ruc" class="col-sm-2 col-form-label col-form-label-sm">RUC</label>
         <div class="col-sm-3">
-          <input type="text" name="ruc" [(ngModel)]="model.ruc" class="form-control form-control-sm" id="ruc" placeholder="Ej. 20281939289">
+          <input type="text" name="ruc" [(ngModel)]="model.ruc" [textMask]="{mask: numberMask}" (blur)="onBlurRuc()" class="form-control form-control-sm" id="ruc" placeholder="Ej. 20281939289" maxlength="11">
         </div>
       </div>
       <div class="form-group row">
         <label for="razonsocial" class="col-sm-2 col-form-label col-form-label-sm">Razón social</label>
         <div class="col-sm-6">
-          <input type="text" name="razonsocial" [(ngModel)]="model.razonsocial" class="form-control form-control-sm" id="razonsocial" placeholder="Ej. ANJO IMPORT & EXPORT S.A.C.">
+          <input type="text" name="razonsocial" [(ngModel)]="model.name" class="form-control form-control-sm" id="razonsocial" placeholder="Ej. ANJO IMPORT & EXPORT S.A.C.">
         </div>
       </div>
       <div class="form-group row">
         <label for="direccion" class="col-sm-2 col-form-label col-form-label-sm">Dirección</label>
         <div class="col-sm-6">
-          <input type="text" name="direccion" [(ngModel)]="model.direccion" class="form-control form-control-sm" id="direccion" placeholder="Ej. CAL.TUNGASUCA NRO. 488 URB. TUPAC AMARU">
+          <input type="text" name="direccion" [(ngModel)]="model.address" class="form-control form-control-sm" id="direccion" placeholder="Ej. CAL.TUNGASUCA NRO. 488 URB. TUPAC AMARU">
         </div>
       </div>
+      <div class="form-group row">
+        <label for="tipopago" class="col-sm-2 col-form-label col-form-label-sm">Tipo pago</label>
+        <div class="col-sm-3">
+          <select name="tipopago" [(ngModel)]="tipoPagoId" class="form-control form-control-sm">
+            <option *ngFor="let t of tipoPago" [ngValue]="t.id">{{t.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <h4>Datos de contacto</h4>
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': contactname.errors}">
+        <label for="contactname" class="col-sm-2 col-form-label col-form-label-sm">Contacto</label>
+        <div class="col-sm-6">
+          <input type="text" name="contactname" [(ngModel)]="contact.name" class="form-control form-control-sm" id="contactname" required #contactname="ngModel">
+        </div>
+      </div>
+      <div class="form-group row" [ngClass]="{'has-danger': contactphone.errors}">
+        <label for="contactphone" class="col-sm-2 col-form-label col-form-label-sm">Telf. Contacto</label>
+        <div class="col-sm-6">
+          <input type="text" name="contactphone" [(ngModel)]="contact.phone" [textMask]="{mask: numberMask}" maxlength="9" class="form-control form-control-sm" id="contactphone" required #contactphone="ngModel">
+        </div>
+      </div>
+      <div class="form-group row" [ngClass]="{'has-danger': contactemail.errors}">
+        <label for="contactemail" class="col-sm-2 col-form-label col-form-label-sm">Email contacto</label>
+        <div class="col-sm-6">
+          <input type="text" name="contactemail" [(ngModel)]="contact.email" [textMask]="{mask: emailMask, guide: false}" class="form-control form-control-sm" id="contactemail" required #contactemail="ngModel">
+        </div>
+      </div>
+
       <div class="form-group row">
         <label class="col-sm-2 col-form-label col-form-label-sm"></label>
         <div class="col-sm-6 text-right">

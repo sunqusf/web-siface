@@ -1,7 +1,7 @@
 <div class="row" style="padding-top: 20px;">
   <div class="col-sm-12 text-center">
     <a routerLink="/cotiza/search" class="btn btn-sm btn-outline-primary float-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-    <h4>Cotizacion N° {{cotizacion.codigo}}</h4>
+    <h4>Cotizacion N° {{cotizacion.code}}</h4>
   </div>
 </div>
 <div class="row">
@@ -11,25 +11,25 @@
       <div class="row">
         <label for="ruc" class="col-sm-2 col-form-label col-form-label-sm">RUC</label>
         <div class="col-sm-3">
-          <p class="form-control-static">{{cotizacion.cliente.ruc}}</p>
+          <p class="form-control-static">{{cotizacion.customer.ruc}}</p>
         </div>
       </div>
       <div class="row">
         <label for="razonsocial" class="col-sm-2 col-form-label col-form-label-sm">Razón social</label>
         <div class="col-sm-6">
-          <p class="form-control-static">{{cotizacion.cliente.razonsocial}}</p>
+          <p class="form-control-static">{{cotizacion.customer.name}}</p>
         </div>
       </div>
       <div class="row">
         <label for="direccion" class="col-sm-2 col-form-label col-form-label-sm">Dirección</label>
         <div class="col-sm-6">
-          <p class="form-control-static">{{cotizacion.cliente.direccion}}</p>
+          <p class="form-control-static">{{cotizacion.customer.address}}</p>
         </div>
       </div>
       <div class="row">
         <label for="vendedor" class="col-sm-2 col-form-label col-form-label-sm">Vendedor</label>
         <div class="col-sm-6">
-          <p class="form-control-static">{{cotizacion.vendedor}}</p>
+          <p class="form-control-static">{{cotizacion.contactName}} - {{cotizacion.contactEmail}} - telf.: {{cotizacion.contactPhone}}</p>
         </div>
       </div>
     </form>
@@ -47,25 +47,25 @@
     Cantidad
   </div>
 </div>
-<div class="row" style="border-top: solid 1px; border-color: #636c72; padding: 15px 0px;" *ngFor="let cartItem of cotizacion.cart">
+<div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.125); padding: 15px 0px;" *ngFor="let cartItem of cotizacion.details">
   <div class="col-sm-2">
-    <img class="img-thumbnail" [attr.src]="cartItem.producto.imagen">
+    <img class="img-thumbnail" [attr.src]="cartItem.imagen">
   </div>
   <div class="col-sm-6">
-    {{cartItem.producto.nombre}}
+    {{cartItem.description}} - {{cartItem.brand}}
   </div>
   <div class="col-sm-2">
-    {{cartItem.producto.precio}}
+    S/. {{cartItem.unitPrice | number:'1.2-2'}}
   </div>
   <div class="col-sm-2">
-    {{cartItem.cantidad}}
+    {{cartItem.quantity}}
   </div>
 </div>
-<div class="row" style="border-top: solid 1px; border-color: #636c72; padding: 15px 0px;">
+<div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.125); padding: 15px 0px;">
   <div class="col-sm-10 text-right text-muted" style="font-size: 13px;">
     Subtotal
   </div>
   <div class="col-sm-2">
-    1000
+    S/. {{subtotal | number:'1.2-2'}}
   </div>
 </div>
