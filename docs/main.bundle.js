@@ -37,7 +37,7 @@ var HttpService = (function () {
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].throw(err);
     };
     HttpService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === 'function' && _a) || Object])
     ], HttpService);
     return HttpService;
@@ -98,7 +98,7 @@ var CotizacionService = (function () {
         return this.http.post(url, data);
     };
     CotizacionService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */]) === 'function' && _a) || Object])
     ], CotizacionService);
     return CotizacionService;
@@ -155,7 +155,7 @@ var BuscarCotizacionComponent = (function () {
             template: __webpack_require__(659),
             styles: [__webpack_require__(647)],
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_cotizacion_service__["a" /* CotizacionService */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_cotizacion_service__["a" /* CotizacionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_cotizacion_service__["a" /* CotizacionService */]) === 'function' && _b) || Object])
     ], BuscarCotizacionComponent);
     return BuscarCotizacionComponent;
@@ -282,7 +282,7 @@ var BuscarProductoComponent = (function () {
             template: __webpack_require__(660),
             styles: [__webpack_require__(648)],
             providers: [__WEBPACK_IMPORTED_MODULE_3__services_inventario_service__["a" /* InventarioService */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_inventario_service__["a" /* InventarioService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__services_inventario_service__["a" /* InventarioService */]) === 'function' && _b) || Object])
     ], BuscarProductoComponent);
     return BuscarProductoComponent;
@@ -318,7 +318,7 @@ var CotizaSuccessComponent = (function () {
             selector: 'app-cotiza-success',
             template: __webpack_require__(661),
             styles: [__webpack_require__(649)]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], CotizaSuccessComponent);
     return CotizaSuccessComponent;
@@ -379,7 +379,7 @@ var CotizaModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5__cotiza_routing_module__["a" /* CotizaRoutingModule */]
             ],
             declarations: [__WEBPACK_IMPORTED_MODULE_11__utils_paging_component__["a" /* PagingComponent */], __WEBPACK_IMPORTED_MODULE_4__buscar_producto_buscar_producto_component__["a" /* BuscarProductoComponent */], __WEBPACK_IMPORTED_MODULE_6__buscar_cotizacion_buscar_cotizacion_component__["a" /* BuscarCotizacionComponent */], __WEBPACK_IMPORTED_MODULE_7__resumen_cotizacion_resumen_cotizacion_component__["a" /* ResumenCotizacionComponent */], __WEBPACK_IMPORTED_MODULE_8__registro_cliente_registro_cliente_component__["a" /* RegistroClienteComponent */], __WEBPACK_IMPORTED_MODULE_9__cotiza_success_cotiza_success_component__["a" /* CotizaSuccessComponent */], __WEBPACK_IMPORTED_MODULE_10__detalle_cotizacion_detalle_cotizacion_component__["a" /* DetalleCotizacionComponent */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], CotizaModule);
     return CotizaModule;
@@ -435,7 +435,7 @@ var DetalleCotizacionComponent = (function () {
             template: __webpack_require__(662),
             styles: [__webpack_require__(650)],
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_cotizacion_service__["a" /* CotizacionService */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_cotizacion_service__["a" /* CotizacionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_cotizacion_service__["a" /* CotizacionService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === 'function' && _b) || Object])
     ], DetalleCotizacionComponent);
     return DetalleCotizacionComponent;
@@ -539,7 +539,7 @@ var RegistroClienteComponent = (function () {
             template: __webpack_require__(663),
             styles: [__webpack_require__(651)],
             providers: [__WEBPACK_IMPORTED_MODULE_4__services_cliente_service__["a" /* ClienteService */], __WEBPACK_IMPORTED_MODULE_5__services_cotizacion_service__["a" /* CotizacionService */], __WEBPACK_IMPORTED_MODULE_6__services_tipopago_service__["a" /* TipoPagoService */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_cliente_service__["a" /* ClienteService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_cliente_service__["a" /* ClienteService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_cotizacion_service__["a" /* CotizacionService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__services_cotizacion_service__["a" /* CotizacionService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__services_tipopago_service__["a" /* TipoPagoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__services_tipopago_service__["a" /* TipoPagoService */]) === 'function' && _d) || Object])
     ], RegistroClienteComponent);
     return RegistroClienteComponent;
@@ -580,7 +580,7 @@ var ResumenCotizacionComponent = (function () {
             selector: 'app-resumen-cotizacion',
             template: __webpack_require__(664),
             styles: [__webpack_require__(652)]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], ResumenCotizacionComponent);
     return ResumenCotizacionComponent;
@@ -615,7 +615,7 @@ var HomeComponent = (function () {
             selector: 'app-home',
             template: __webpack_require__(665),
             styles: [__webpack_require__(653)]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], HomeComponent);
     return HomeComponent;
@@ -702,7 +702,7 @@ var AppRoutingModule = (function () {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -740,7 +740,7 @@ var AppComponent = (function () {
             selector: 'app-root',
             template: __webpack_require__(658),
             styles: [__webpack_require__(646)]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
@@ -806,7 +806,7 @@ var AppModule = (function () {
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_5__services_http_service__["a" /* HttpService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
@@ -860,7 +860,7 @@ var CotizaRoutingModule = (function () {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], CotizaRoutingModule);
     return CotizaRoutingModule;
@@ -915,7 +915,7 @@ var ClienteService = (function () {
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     ClienteService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */]) === 'function' && _a) || Object])
     ], ClienteService);
     return ClienteService;
@@ -955,7 +955,7 @@ var InventarioService = (function () {
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     InventarioService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */]) === 'function' && _a) || Object])
     ], InventarioService);
     return InventarioService;
@@ -995,7 +995,7 @@ var TipoPagoService = (function () {
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     TipoPagoService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */]) === 'function' && _a) || Object])
     ], TipoPagoService);
     return TipoPagoService;
@@ -1041,19 +1041,19 @@ var PagingComponent = (function () {
         return false;
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata('design:type', Number)
     ], PagingComponent.prototype, "currentPage", void 0);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata('design:type', Number)
     ], PagingComponent.prototype, "totalPages", void 0);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata('design:type', Number)
     ], PagingComponent.prototype, "pageSize", void 0);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
         __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _a) || Object)
     ], PagingComponent.prototype, "goto", void 0);
     PagingComponent = __decorate([
@@ -1061,7 +1061,7 @@ var PagingComponent = (function () {
             selector: 'paging',
             providers: [],
             template: "<nav>\n  <ul class=\"pagination justify-content-center\">\n      <li class=\"page-item\" [ngClass]=\"{'active': currentPage==page}\" *ngFor=\"let page of pages\"><a class=\"page-link\" href=\"#\" (click)=\"onClickPage(page)\">{{page+1}}</a></li>\n  </ul>\n  </nav>"
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], PagingComponent);
     return PagingComponent;
@@ -1234,7 +1234,7 @@ module.exports = module.exports.toString();
 /***/ 658:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-anjo fixed-top\">\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" (click)=\"toggleMenu()\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <a class=\"navbar-brand mb-0\" routerLink=\"/home\"><img src=\"/assets/venta-epp-anjo-lima-white.png\" style=\"height: 30px;\" /></a>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\" [ngClass]=\"{show: showMenu}\">\n    <ul class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/home\" (click)=\"toggleMenu()\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/cotiza/search\" (click)=\"toggleMenu()\">Cotizaciones</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n<div class=\"container\">\n<router-outlet></router-outlet>\n</div>\n"
+module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-anjo fixed-top\">\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" (click)=\"toggleMenu()\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <a class=\"navbar-brand mb-0\" routerLink=\"/home\"><img src=\"/web-siface/assets/venta-epp-anjo-lima-white.png\" style=\"height: 30px;\" /></a>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\" [ngClass]=\"{show: showMenu}\">\n    <ul class=\"navbar-nav ml-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/home\" (click)=\"toggleMenu()\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/cotiza/search\" (click)=\"toggleMenu()\">Cotizaciones</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n<div class=\"container\">\n<router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -1283,7 +1283,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <a route
 /***/ 665:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-6 text-center\" style=\"background-color: #18417C; padding: 30px 0px;\">\n    <img class=\"img-thumbnail\" src=\"/assets/venta-epp-anjo-lima-white.png\" style=\"background-color: transparent !important; border: none;\" />\n  </div>\n  <div class=\"col-sm-6 text-center\">\n    <p>Comienza aqui!</p>\n    <button class=\"btn btn-success\" routerLink=\"/cotiza/search\">Cotizaciones</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-6 text-center\" style=\"background-color: #18417C; padding: 30px 0px;\">\n    <img class=\"img-thumbnail\" src=\"/web-siface/assets/venta-epp-anjo-lima-white.png\" style=\"background-color: transparent !important; border: none;\" />\n  </div>\n  <div class=\"col-sm-6 text-center\">\n    <p>Comienza aqui!</p>\n    <button class=\"btn btn-success\" routerLink=\"/cotiza/search\">Cotizaciones</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
