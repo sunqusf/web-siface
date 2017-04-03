@@ -22,7 +22,7 @@
 </div>
 <div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.125); padding: 15px 0px; font-size: 14px;" *ngFor="let cartItem of cart">
   <div class="col-sm-2">
-    <img class="img-thumbnail" [attr.src]="cartItem.producto.image">
+    <img class="img-thumbnail" [attr.src]="cartItem.producto.image == null ? 'http://placehold.it/674x505' : cartItem.producto.image">
   </div>
   <div class="col-sm-6">
     {{cartItem.producto.description}}

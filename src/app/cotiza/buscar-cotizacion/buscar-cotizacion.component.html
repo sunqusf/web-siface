@@ -1,13 +1,13 @@
 <h5><i class="fa fa-dollar" aria-hidden="true"></i> Cotizaciones <small>Consulte sus cotizaciones</small></h5>
 <div class="row">
   <div class="col-sm-12">
-    <a (click)="nuevaCotizacion()" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-file" aria-hidden="true"></i> Nueva cotizacion</a>
+    <button (click)="nuevaCotizacion()" class="btn btn-success float-right"><i class="fa fa-file" aria-hidden="true"></i> Nueva cotizacion</button>
   </div>
 </div>
 
 <div class="row">
   <div class="col-sm-12" style="padding-top: 20px;">
-    <table class="table table-hover table-sm" *ngIf="cotizaciones.length > 0">
+    <table class="table table-hover" *ngIf="cotizaciones.length > 0">
       <thead>
         <tr>
           <th>Cliente</th>
@@ -19,7 +19,7 @@
         <tr *ngFor="let cotizacion of cotizaciones">
           <td>{{cotizacion.customer.ruc}} - {{cotizacion.customer.name}}</td>
           <td>11/03/2017</td>
-          <td><a [routerLink]="['/cotiza/detail/', cotizacion.id]" class="btn btn-link btn-sm btn-outline-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+          <td><a [routerLink]="['/cotiza/detail/', cotizacion.id]" class="btn btn-link btn-sm btn-outline-primary"><i class="fa fa-search" aria-hidden="true"></i></a></td>
         </tr>
       </tbody>
     </table>

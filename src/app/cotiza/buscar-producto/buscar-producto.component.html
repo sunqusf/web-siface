@@ -44,7 +44,7 @@
                 <td>{{producto.description}}<br /><span class="badge" [ngClass]="{'badge-success': producto.stock > 30, 'badge-warning': producto.stock > 0 && producto.stock < 31, 'badge-danger': producto.stock == 0}">Stock: {{producto.stock}}</span></td>
                 <td>S/. {{producto.unitCost | number:'1.2-2' }}</td>
                 <td>S/. {{producto.unitPrice | number:'1.2-2' }}</td>
-                <td><img class="img-thumbnail" [attr.src]="producto.image"></td>
+                <td><img class="img-thumbnail" [attr.src]="producto.image == null ? 'http://placehold.it/674x505' : producto.image"></td>
                 <td>
                   <button (click)="onAgregar(producto)" class="btn btn-link"><i class="fa fa-cart-plus"></i></button>
                 </td>
@@ -62,7 +62,7 @@
           <form (ngSubmit)="onAgregarCarrito()" #agregarCarritoForm="ngForm">
             <div class="form-group row">
               <div class="col-sm-2">
-                <img class="img-thumbnail" [attr.src]="productoActual.image">
+                <img class="img-thumbnail" [attr.src]="productoActual.image == null ? 'http://placehold.it/674x505' : productoActual.image">
               </div>
               <div class="col-sm-10">
                 <p class="form-control-static">{{productoActual.code}} - {{productoActual.description}}
