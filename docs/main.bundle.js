@@ -53,7 +53,7 @@ var HttpService = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BASE_URL; });
 
-var BASE_URL = 'http://siface-thegoodone.rhcloud.com/';
+var BASE_URL = 'https://siface-thegoodone.rhcloud.com/';
 //# sourceMappingURL=globals.js.map
 
 /***/ }),
